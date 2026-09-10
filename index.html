@@ -62,7 +62,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-[#050505] text-gray-900 dark:text-white min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4">
+<body class="bg-gray-50 dark:bg-[#050505] text-gray-900 dark:text-white min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 py-10">
 
     <!-- Latar Belakang Gelembung Estetik (Blobs) -->
     <div class="fixed inset-0 w-full h-full z-[-1] pointer-events-none flex justify-center items-center overflow-hidden">
@@ -81,34 +81,44 @@
     </button>
 
     <!-- CONTAINER ID CARD -->
-    <div id="profil-staf" class="hidden w-full max-w-sm glass rounded-[2.5rem] p-8 sm:p-10 relative text-center animate-fade-up z-10 border-t border-l border-white/40 dark:border-white/10">
+    <!-- Diperlebar sedikit di mode Desktop/Tablet (md:max-w-md) agar lebih lega -->
+    <div id="profil-staf" class="hidden w-full max-w-sm md:max-w-md glass rounded-[2.5rem] p-8 sm:p-10 md:p-12 relative text-center animate-fade-up z-10 border-t border-l border-white/40 dark:border-white/10">
         
-        <!-- Logo PT -->
-        <img src="logopt.png" alt="Logo PT Media Tulisan Manusia" class="h-10 sm:h-12 w-auto object-contain mx-auto mb-6 drop-shadow-md dark:brightness-150 transition-all">
+        <!-- Logo PT (Ukuran Diperbesar: h-16 dan sm:h-20) -->
+        <img src="logopt.png" alt="Logo PT Media Tulisan Manusia" class="h-16 sm:h-20 w-auto object-contain mx-auto mb-8 drop-shadow-md dark:brightness-150 transition-all">
 
         <!-- Foto Staf -->
-        <div class="relative w-32 h-32 mx-auto mb-5 group">
+        <div class="relative w-32 h-32 md:w-36 md:h-36 mx-auto mb-6 group">
             <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-gray-300 to-gray-100 dark:from-gray-700 dark:to-gray-900 shadow-inner animate-pulse"></div>
-            <!-- Gambar default jika staf belum punya foto (menggunakan avatar transparan) -->
+            <!-- Gambar default jika staf belum punya foto -->
             <img id="foto" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ccc' viewBox='0 0 24 24'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E" alt="Foto Staf" class="relative w-full h-full object-cover rounded-full border-[3px] border-white dark:border-gray-800 shadow-xl group-hover:scale-105 transition-transform duration-300 z-10 bg-white dark:bg-gray-800">
             
             <!-- Tanda Centang Verifikasi (Verified) -->
-            <div class="absolute bottom-0 right-1 bg-blue-500 text-white p-1.5 rounded-full border-2 border-white dark:border-gray-800 z-20 shadow-md">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+            <div class="absolute bottom-1 right-1 bg-blue-500 text-white p-1.5 rounded-full border-2 border-white dark:border-gray-800 z-20 shadow-md">
+                <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
             </div>
         </div>
 
         <!-- Detail Staf -->
-        <h1 id="nama" class="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight leading-tight mb-1">Memuat Nama...</h1>
+        <h1 id="nama" class="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 dark:text-white tracking-tight leading-tight mb-2">Memuat Nama...</h1>
         <p id="posisi" class="text-xs sm:text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-8">Memuat Posisi...</p>
 
         <!-- Tombol Aksi -->
         <div class="space-y-3 w-full">
+            
+            <!-- Tombol Website Pribadi (Dinamis) -->
+            <a id="link-website" href="#" target="_blank" class="hidden items-center justify-center gap-2 w-full bg-blue-600/10 dark:bg-blue-400/10 border border-blue-500/30 text-blue-700 dark:text-blue-300 font-extrabold py-3.5 px-4 rounded-2xl hover:bg-blue-600/20 dark:hover:bg-blue-400/20 transition-colors duration-300 text-xs sm:text-sm uppercase tracking-wider">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                Website Profil
+            </a>
+
+            <!-- Tombol WhatsApp -->
             <a id="link-wa" href="#" target="_blank" class="flex items-center justify-center gap-2 w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-extrabold py-3.5 px-4 rounded-2xl shadow-lg hover:-translate-y-1 transition-transform duration-300 text-xs sm:text-sm uppercase tracking-wider">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                 WhatsApp
             </a>
             
+            <!-- Tombol Email -->
             <a id="link-email" href="#" class="flex items-center justify-center gap-2 w-full bg-white/50 dark:bg-black/40 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-bold py-3.5 px-4 rounded-2xl hover:bg-white dark:hover:bg-black transition-colors duration-300 text-xs sm:text-sm tracking-wider">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 Kirim Email
@@ -131,7 +141,7 @@
 
     <!-- SCRIPT LOGIKA PENGAMBILAN DATA STAF -->
     <script>
-        // Set Default Tema (Membaca preferensi sistem/sebelumnya)
+        // Set Default Tema
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
         }
@@ -141,49 +151,40 @@
         }
 
         // =========================================================================
-        // 📥 DATABASE STAFF: SILAKAN TAMBAHKAN STAFF BARU DI SINI SECARA BERURUTAN
+        // 📥 DATABASE STAFF
         // =========================================================================
         const dataStaff = {
             "20262": {
                 nama: "Amnah Tahta Alfina",
                 posisi: "Administrasi",
                 email: "Amnahtahta17@gmail.com",
-                whatsapp: "6281515845094", // Format Internasional (Tanpa + dan tanpa angka 0 di depan)
-                foto: "foto20262.png" // Opsional: jika file tidak ada, akan diganti logo avatar otomatis
+                whatsapp: "6281515845094",
+                foto: "foto20262.png",
+                website: "https://mediatulisanmanusia.online" // Mengarah ke web utama
             },
             "20261": {
                 nama: "Ach. Sufyan Wahyudi",
                 posisi: "Chief Executive Officer",
                 email: "ptmediatulisanmanusia@gmail.com",
                 whatsapp: "6288294448222",
-                foto: "foto20261.png"
+                foto: "foto20261.png",
+                website: "https://sufyan.mediatulisanmanusia.online" // Mengarah ke web personal
             },
             "20263": {
                 nama: "Ervina Nur Khasanah",
                 posisi: "Marketing",
                 email: "ervina.khasana23@gmail.com",
                 whatsapp: "6281252682528",
-                foto: "foto20263.png"
-        }
-            // CARA MENAMBAH STAF BARU:
-            // Tambahkan tanda KOMA (,) di kurung kurawal staf terakhir, lalu buat ID baru.
-            // Contoh:
-            // "stafbaru": {
-            //     nama: "Nama Lengkap",
-            //     posisi: "Jabatan",
-            //     email: "email@contoh.com",
-            //     whatsapp: "628123456789",
-            //     foto: "foto-staffbaru.jpg"
-            // }
+                foto: "foto20263.png",
+                website: "https://mediatulisanmanusia.online" // Mengarah ke web utama
+            }
         };
         // =========================================================================
 
         document.addEventListener("DOMContentLoaded", () => {
-            // Ambil "id" dari URL. Contoh: staff.domain.com/?id=amnah
             const urlParams = new URLSearchParams(window.location.search);
             const idStaf = urlParams.get('id');
 
-            // Cek apakah ID ada di URL dan terdaftar di dalam Database dataStaff di atas
             if (idStaf && dataStaff[idStaf]) {
                 const staf = dataStaff[idStaf];
                 
@@ -194,23 +195,34 @@
                 document.getElementById('link-wa').href = "https://wa.me/" + staf.whatsapp;
                 document.getElementById('link-email').href = "mailto:" + staf.email;
                 
-                // Set Foto (Jika foto diisi dan file ada. Jika foto tidak diisi/tidak ditemukan, biarkan svg bawaan HTML)
+                // Logika memunculkan tombol Website Pribadi jika ada
+                const btnWebsite = document.getElementById('link-website');
+                if (staf.website) {
+                    btnWebsite.href = staf.website;
+                    btnWebsite.classList.remove('hidden');
+                    btnWebsite.classList.add('flex'); // Pakai flex agar icon dan text sejajar
+                } else {
+                    btnWebsite.classList.add('hidden');
+                    btnWebsite.classList.remove('flex');
+                }
+                
+                // Set Foto
                 if(staf.foto && staf.foto !== "") {
                     const imgFoto = document.getElementById('foto');
                     imgFoto.src = staf.foto;
-                    // Antisipasi jika file foto tidak ditemukan (broken image)
                     imgFoto.onerror = function() {
                         this.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ccc' viewBox='0 0 24 24'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E";
                     };
                 }
 
-                // Tampilkan Card
+                // Tampilkan Card Utama
                 document.getElementById('profil-staf').classList.remove('hidden');
             } else {
-                // Tampilkan Tampilan Error
+                // Tampilkan Card Error
                 document.getElementById('error-staf').classList.remove('hidden');
             }
         });
     </script>
 </body>
 </html>
+
